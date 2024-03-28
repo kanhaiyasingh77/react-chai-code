@@ -1,4 +1,4 @@
-import conf from '../conf.js';
+import conf from '../conf/conf.js';
 
 import { Client, Account, ID } from "appwrite";
 
@@ -18,6 +18,7 @@ export class AuthService {
              const userAccount =  await this.account.create(ID.unique(), email, password, name);
              if (userAccount) {
                 // call another method
+                
                 return this.login({email, password})
              } else {
                 return userAccount;
