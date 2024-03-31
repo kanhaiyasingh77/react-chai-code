@@ -1,13 +1,13 @@
-import { useController } from 'react-hook-form';
-import conf from '../conf.js';
-import { Client, Id, Databases, Storage, Query} from "appwrite";
+
+import conf from '../conf/conf.js';
+import { Client, ID, Databases, Storage, Query} from "appwrite";
 
 export class Service{
     client = new Client();
     databases;
     bucket;
     constructor(){
-        this.Client
+        this.client
         .setEndpoint(conf.appwriteUrl)
         .setProject(conf.appwriteProjectId);
         this.databases = new Databases(this.client);
@@ -97,7 +97,7 @@ export class Service{
         try {
             return await this.bucket.createFile(
                 conf.appwriteBucketId,
-                Id.unique(),
+                ID.unique(),
                 file
             )
         } catch (error) {

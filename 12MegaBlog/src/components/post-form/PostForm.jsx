@@ -43,9 +43,8 @@ function PostForm({post}) {
                const fileId = file.$id
                data.featuredImage = fileId
                const dbPost = await appwriteService.createPost({
-                ...data,
-                userId = userData.$id,
-               })
+                ...data, userId: userData.$id,});
+
                if (dbPost) {
                 navigate('/post/${dbPost.$id}')
                }
@@ -128,5 +127,5 @@ function PostForm({post}) {
         </form>
   );
 }
-import {useForm}
+
 export default PostForm

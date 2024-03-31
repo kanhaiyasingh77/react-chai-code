@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     authService.getCurrentUser()
-    .then(() => {
+    .then((userData) => {
       if (userData) {
         dispatch(login({userData}))
       } else {
@@ -26,7 +26,7 @@ function App() {
       <div className='w-full block'>
         <Header />
         <main>
-          todo: {/* {<outlet />} */}
+          TODO: <Outlet />
         </main>
         <Footer />
       </div>
